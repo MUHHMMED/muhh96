@@ -173,7 +173,7 @@ footer{position:relative;z-index:1}
 
 <section class="sr" id="showreel" aria-label="Showreel">
  <div class="eb2">Showreel · 2026</div>
- <div class="srf" id="srf"><iframe id="sri" src="https://player.vimeo.com/video/1249676431?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div>
+ <div class="srf" id="srf"><iframe id="sri" src="https://player.vimeo.com/video/1249684108?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div>
  <div class="row"><span class="nm">Mohamed Tawfik</span><button class="btn f" id="srs" type="button">Play with sound</button></div>
 <a class="srd" href="#top" aria-label="Scroll down"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg></a>
 </section>
@@ -268,7 +268,7 @@ const req=()=>{if(!raf)raf=requestAnimationFrame(draw)};
 hero.addEventListener('pointermove',e=>{const b=hero.getBoundingClientRect();mx=((e.clientX-b.left)/b.width-.5)*2;my=((e.clientY-b.top)/b.height-.5)*2;req()});
 hero.addEventListener('pointerleave',()=>{mx=0;my=0;req()});
 let tk=0;addEventListener('scroll',()=>{if(tk)return;tk=1;requestAnimationFrame(()=>{tk=0;const y=scrollY;if(y<innerHeight*1.2){sy=y*.12;req()}nav.classList.toggle('s',y>40);nav.classList.toggle('h',y>last&&y>300);last=y})},{passive:true})})();
-document.getElementById("srs").addEventListener("click",function(){var f=document.getElementById("sri");f.src="https://player.vimeo.com/video/1249676431?autoplay=1&muted=0&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1";this.style.display="none"});
+document.getElementById("srs").addEventListener("click",function(){var f=document.getElementById("sri");f.src="https://player.vimeo.com/video/1249684108?autoplay=1&muted=0&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1";this.style.display="none"});
 </script>
 </body>
 </html>
