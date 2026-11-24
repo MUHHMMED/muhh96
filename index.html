@@ -143,6 +143,13 @@ footer{position:relative;z-index:1}
 .sr .nm{font:600 clamp(16px,1.8vw,20px)/1.1 Inter,system-ui,sans-serif;letter-spacing:.02em;color:var(--ink)}
 .sr .btn{padding:11px 22px;font-size:12px}
 @media(max-width:860px){.sr{padding-top:76px;gap:14px}.srf{height:min(70svh,calc((100vw - 40px)*16/9))}}
+
+.srd{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:2px;color:var(--ink);text-decoration:none;font:500 10px Inter,system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;opacity:.9}
+.srd svg{width:22px;height:22px;filter:drop-shadow(0 0 4px rgba(195,198,204,.9)) drop-shadow(0 0 12px rgba(195,198,204,.55));animation:srb 1.6s ease-in-out infinite}
+.srd svg+svg{margin-top:-12px;opacity:.5;animation-delay:.18s}
+@keyframes srb{0%,100%{transform:translateY(-3px);opacity:.35}50%{transform:translateY(5px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.srd svg{animation:none}}
+.srf{height:min(68svh,calc((100vw - 40px)*16/9))!important}
 </style>
 </head>
 <body>
@@ -168,6 +175,7 @@ footer{position:relative;z-index:1}
  <div class="eb2">Showreel · 2026</div>
  <div class="srf" id="srf"><iframe id="sri" src="https://player.vimeo.com/video/1249676431?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div>
  <div class="row"><span class="nm">Mohamed Tawfik</span><button class="btn f" id="srs" type="button">Play with sound</button><a class="btn" href="#top">Selected work <span aria-hidden="true">&darr;</span></a></div>
+<a class="srd" href="#top" aria-label="Scroll down"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg></a>
 </section>
 <header class="hero" id="top">
  <div class="tx">
