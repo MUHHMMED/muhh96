@@ -134,6 +134,15 @@ footer{position:relative;z-index:1}
 .soc3d{position:absolute;left:50%;bottom:6%;width:200%;max-width:none;z-index:0;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55));transform:translateX(-50%) translateY(70px) scale(.8);animation:soc 6s ease-in-out infinite alternate}
 @keyframes soc{from{translate:0 -10px;rotate:-2deg}to{translate:0 12px;rotate:3deg}}
 .sa .who{z-index:1}
+
+.sr{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:84px 20px 28px;background:radial-gradient(ellipse at 50% 40%,#16161a 0%,#0a0a0b 70%);text-align:center}
+.sr .eb2{font:500 11px Inter,system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--mut)}
+.srf{position:relative;height:min(74svh,calc((100vw - 40px)*16/9));aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(239,233,222,.16);background:#000;box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 0 6px rgba(239,233,222,.03)}
+.srf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sr .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
+.sr .nm{font:600 clamp(16px,1.8vw,20px)/1.1 Inter,system-ui,sans-serif;letter-spacing:.02em;color:var(--ink)}
+.sr .btn{padding:11px 22px;font-size:12px}
+@media(max-width:860px){.sr{padding-top:76px;gap:14px}.srf{height:min(70svh,calc((100vw - 40px)*16/9))}}
 </style>
 </head>
 <body>
@@ -155,6 +164,11 @@ footer{position:relative;z-index:1}
  <ul><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
 </div></nav>
 
+<section class="sr" id="showreel" aria-label="Showreel">
+ <div class="eb2">Showreel · 2026</div>
+ <div class="srf" id="srf"><iframe id="sri" src="https://player.vimeo.com/video/1249676431?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div>
+ <div class="row"><span class="nm">Mohamed Tawfik</span><button class="btn f" id="srs" type="button">Play with sound</button><a class="btn" href="#top">Selected work <span aria-hidden="true">&darr;</span></a></div>
+</section>
 <header class="hero" id="top">
  <div class="tx">
   <div class="eb">AI Video Creator, Motion Designer &amp; Editor</div>
@@ -246,6 +260,7 @@ const req=()=>{if(!raf)raf=requestAnimationFrame(draw)};
 hero.addEventListener('pointermove',e=>{const b=hero.getBoundingClientRect();mx=((e.clientX-b.left)/b.width-.5)*2;my=((e.clientY-b.top)/b.height-.5)*2;req()});
 hero.addEventListener('pointerleave',()=>{mx=0;my=0;req()});
 let tk=0;addEventListener('scroll',()=>{if(tk)return;tk=1;requestAnimationFrame(()=>{tk=0;const y=scrollY;if(y<innerHeight*1.2){sy=y*.12;req()}nav.classList.toggle('s',y>40);nav.classList.toggle('h',y>last&&y>300);last=y})},{passive:true})})();
+document.getElementById("srs").addEventListener("click",function(){var f=document.getElementById("sri");f.src="https://player.vimeo.com/video/1249676431?autoplay=1&muted=0&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1";this.style.display="none"});
 </script>
 </body>
 </html>
