@@ -151,9 +151,6 @@ footer{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.srd svg{animation:none}}
 .srf{height:min(62svh,calc((100vw - 40px)*16/9))!important}
 @media(min-width:861px){.sr{padding-top:68px;gap:12px}.srf{height:clamp(440px,calc(100svh - 236px),660px)!important}}
-.srp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:opacity .6s ease;pointer-events:none}
-.srp.h{opacity:0}
-.srp{animation:srfade .7s ease 7s forwards}@keyframes srfade{to{opacity:0;visibility:hidden}}
 .brand img{filter:grayscale(1) brightness(1.12) contrast(1.05)}
 </style>
 </head>
@@ -178,7 +175,7 @@ footer{position:relative;z-index:1}
 
 <section class="sr" id="showreel" aria-label="Showreel">
  <div class="eb2">Showreel · 2026</div>
- <div class="srf" id="srf"><img class="srp" id="srp" src="showreel-poster.jpg" alt=""><iframe id="sri" src="https://player.vimeo.com/video/1249684108?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div><script>try{(function(){var f=document.getElementById("sri"),p=document.getElementById("srp");if(!f||!p)return;function hide(){p.classList.add("h");p.style.opacity="0";p.style.visibility="hidden"}setTimeout(hide,8000);window.addEventListener("message",function(e){var d=e.data;if(typeof d==="string"){try{d=JSON.parse(d)}catch(x){return}}if(d&&(d.event==="timeupdate"||d.event==="play"||d.event==="playing")&&(!d.data||d.data.seconds===undefined||d.data.seconds>0.3))hide()});function sub(){try{["timeupdate","play"].forEach(function(v){f.contentWindow.postMessage(JSON.stringify({method:"addEventListener",value:v}),"*")})}catch(x){}}f.addEventListener("load",function(){sub();setTimeout(sub,800);setTimeout(hide,4500)})})()}catch(x){var q=document.getElementById("srp");if(q)q.style.display="none"}</script>
+ <div class="srf" id="srf"><iframe id="sri" src="https://player.vimeo.com/video/1249684108?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mohamed Tawfik showreel"></iframe></div>
  <div class="row"><span class="nm">Mohamed Tawfik</span><button class="btn f" id="srs" type="button">Play with sound</button></div>
 <a class="srd" href="#top" aria-label="Scroll down"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg></a>
 </section>
