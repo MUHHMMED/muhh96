@@ -106,6 +106,14 @@ dialog::backdrop{background:rgba(0,0,0,.9)}
 .df a{padding:9px 20px;border:1px solid var(--sil);border-radius:99px;color:var(--ink)}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--e) var(--d,0s),transform .8s var(--e) var(--d,0s)}
 .rv.on{opacity:1;transform:none}
+.grid{grid-auto-flow:dense}
+.pc.cv{aspect-ratio:9/16;background:#0a0a0b}
+.pc.cv.h{grid-column:span 2;aspect-ratio:16/9}
+.pc.cv::before{display:none}
+.pc.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--e)}
+.pc.cv:hover img{transform:scale(1.04)}
+.pc.cv .p{right:auto;bottom:auto;left:50%;top:50%;margin:-26px 0 0 -26px;width:52px;height:52px;background:rgba(10,10,11,.55);backdrop-filter:blur(6px);border-color:var(--ink);opacity:.9}
+@media(max-width:560px){.pc.cv.h{grid-column:span 1}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}.ln>span{transform:none!important}}
 h1,h2,.tab,.svc h3,.pc .t,.dh h3{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.03em}
 h1{font-size:clamp(40px,6.2vw,98px);line-height:1.03}
@@ -203,6 +211,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll(".rv").forEach((e,i)=>{RM?e.classList.add("on"):io.observe(e)});
 const H={"1235006472":"979cbf2013","1235001462":"2635f5a3e6","1235000967":"49971d460d","1235007762":"11bcf93642","1235015477":"37c89cb662","1235015220":"afce08f891","1235014906":"943c7202a5","1235009801":"7dd331472b","1235024166":"4ef7c38ae1","1235020854":"593fc8864f","1235020795":"56a0d768d3","1235016956":"21cc4ee4ad","1235016437":"a8d5aed3f2","1245029345":"712d9321a8","1245031790":"cc4e46abdf","1245035729":"adefba0643","1245032860":"9f1fd445fd","1245033554":"49b13b508c","1245034009":"420e9e095a","1245034427":"158561967a","1245034750":"4e5b2d3f7d","1245035328":"7bd381ce58","1245036661":"3ae8ff5818","1245036973":"57cebb0443","1248896714":"2758fa1162","1249046287":"79eb28d694"};
 const V=new Set(["1235001462","1235000967","1235009801","1245029345","1245031790","1245032860","1245033554","1245034009","1245034427","1245034750","1245035328","1245036661","1248896714"]);
+const HZ=new Set(["1235006472","1235007762","1235015477","1235015220","1235014906","1235024166","1235020854","1235020795","1235016956","1235016437","1245035729","1245036973","1249046287"]);
 const pad=n=>String(n+1).padStart(2,"0");
 const D={Automotive:[["1245029345","Automotive Project 01"],["1245031790","Ford Raptor"],["1245035729","Automotive Project 03"]].map(a=>({id:a[0],t:a[1]})),
 Medical:["1235006472","1235001462","1235000967","1235007762","1235015477","1235015220","1235014906","1235009801","1235024166","1235020854","1235020795","1235016956","1235016437"].map((id,i)=>({id,t:"Medical Project "+pad(i)})),
@@ -210,8 +219,8 @@ Medical:["1235006472","1235001462","1235000967","1235007762","1235015477","12350
 const IC=["cam","timeline","clap","lens","reel","film"],cats=["AI Video","Medical","Automotive"],tabs=document.querySelector(".tabs"),grid=document.getElementById("grid");
 const dlg=document.getElementById("dlg"),fr=document.getElementById("fr");
 function play(p){document.getElementById("dt").textContent=p.t;document.getElementById("vl").href="https://vimeo.com/"+p.id+(H[p.id]?"/"+H[p.id]:"");fr.className="fr"+(V.has(p.id)?" v":"");fr.innerHTML='<iframe src="https://player.vimeo.com/video/'+p.id+'?h='+(H[p.id]||"")+'&autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="'+p.t+'"></iframe>';dlg.showModal()}
-function show(c,k){grid.innerHTML="";D[c].forEach((p,i)=>{const b=document.createElement("button");b.className="pc";b.type="button";b.style.setProperty("--i",i);b.setAttribute("aria-label","Play "+p.t);
- b.innerHTML='<span class="n">'+pad(i)+'</span><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#'+IC[(i+k*2)%6]+'"/></svg><span class="t">'+p.t+'<small>'+c+'</small></span><span class="p" aria-hidden="true">▶</span>';
+function show(c,k){grid.innerHTML="";D[c].forEach((p,i)=>{const b=document.createElement("button");b.className="pc cv"+(HZ.has(p.id)?" h":"");b.type="button";b.style.setProperty("--i",i);b.setAttribute("aria-label","Play "+p.t);
+ b.innerHTML='<img src="covers/'+p.id+'.jpg" alt="'+p.t+' ('+c+')" loading="lazy" decoding="async"><span class="p" aria-hidden="true">▶</span>';
  b.onclick=()=>play(p);
  b.addEventListener("pointermove",e=>{if(RM)return;const r=b.getBoundingClientRect();b.style.transform="perspective(900px) rotateX("+(-((e.clientY-r.top)/r.height-.5)*10)+"deg) rotateY("+(((e.clientX-r.left)/r.width-.5)*10)+"deg)"});
  b.addEventListener("pointerleave",()=>{b.style.transform=""});grid.appendChild(b)})}
