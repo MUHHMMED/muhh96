@@ -42,7 +42,8 @@ nav ul a{opacity:.9;transition:opacity .3s,color .3s}nav ul a:hover{opacity:1;co
 .sr{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:84px 20px 24px;background:radial-gradient(ellipse at 50% 40%,#16253b 0%,#0a1220 72%);text-align:center}
 .eb2{font:500 14px var(--bd);color:var(--mut)}
 .srf{position:relative;height:min(62svh,calc((100vw - 40px)*16/9));aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 0 1px var(--ln)}
-@media(min-width:861px){.srf{height:clamp(440px,calc(100svh - 250px),650px)}}
+@media(min-width:861px){.srf{height:clamp(440px,calc(100svh - 236px),700px)}}
+@media(max-width:860px){.sr{padding:70px 10px 14px;gap:10px;justify-content:center}.srf{height:min(calc(100svh - 168px),calc((100vw - 20px)*16/9));border-radius:20px}.eb2{display:none}.srd{margin-top:-2px}}
 .srf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .sr .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
 .sr .nm{font:600 clamp(16px,1.8vw,20px) var(--hd);letter-spacing:-.01em}
